@@ -67,7 +67,7 @@
             return shuffled.slice(0, count);
         }
 
-        const randomTextFiles = getRandomFiles(textFiles, 3);
+        const randomTextFiles = getRandomFiles(textFiles, 15);
         randomTextFiles.forEach((file, index) => {
             fetch(file)
                 .then(response => response.text())
@@ -80,7 +80,7 @@
                 });
         });
 
-        const randomImages1 = getRandomFiles(imageFiles, 5);
+        const randomImages1 = getRandomFiles(imageFiles, 50);
         randomImages1.forEach(img => {
             let imageElement = document.createElement('img');
             imageElement.src = img;
@@ -88,7 +88,7 @@
             document.getElementById('images1').appendChild(imageElement);
         });
 
-        const randomImages2 = getRandomFiles(imageFiles.filter(img => !randomImages1.includes(img)), 2);
+        const randomImages2 = getRandomFiles(imageFiles.filter(img => !randomImages1.includes(img)), 5);
         randomImages2.forEach(img => {
             let imageElement = document.createElement('img');
             imageElement.src = img;
