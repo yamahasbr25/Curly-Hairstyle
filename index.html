@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Curly Hairstyle Trends</title>
+    <style>
+        body {
+            background-color: #ccc;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+            margin: 0;
+        }
+        #wrapper {
+            background-color: #000;
+            width: 800px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .content-block {
+            background-color: #222;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        #images {
+            text-align: center;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px 0;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .pin-button {
+            display: block;
+            margin: 10px auto;
+            padding: 8px 16px;
+            background-color: #E60023;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 14px;
+            text-align: center;
+        }
+        @media (max-width: 820px) {
+            #wrapper {
+                width: 95%;
+                padding: 15px;
+            }
+            .content-block {
+                padding: 15px;
+            }
+            .pin-button {
+                padding: 6px 12px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="content-block" id="content1"></div>
+        <div id="images1"></div>
+        <div class="content-block" id="content2"></div>
+        <div id="images2"></div>
+        <div class="content-block" id="content3"></div>
+    </div>
+
+    <script>
+        const textFiles = ['Artikel-1.txt', 'Artikel-2.txt', 'Artikel-3.txt', 'Artikel-4.txt', 'Artikel-5.txt', 'Artikel-6.txt', 'Artikel-7.txt', 'Artikel-8.txt', 'Artikel-9.txt', 'Artikel-10.txt', 'Artikel-11.txt', 'Artikel-12.txt', 'Artikel-13.txt', 'Artikel-14.txt', 'Artikel-15.txt'];
+        const imageFiles = ['Gambar-1.png', 'Gambar-2.png', 'Gambar-3.png', 'Gambar-4.png', 'Gambar-5.png', 'Gambar-6.png', 'Gambar-7.png', 'Gambar-8.png', 'Gambar-9.png', 'Gambar-10.png', 'Gambar-11.png', 'Gambar-12.png', 'Gambar-13.png', 'Gambar-14.png', 'Gambar-15.png', 'Gambar-16.png', 'Gambar-17.png', 'Gambar-18.png', 'Gambar-19.png', 'Gambar-20.png', 'Gambar-21.png', 'Gambar-22.png', 'Gambar-23.png', 'Gambar-24.png', 'Gambar-25.png', 'Gambar-26.png', 'Gambar-27.png', 'Gambar-28.png', 'Gambar-29.png', 'Gambar-30.png', 'Gambar-31.png', 'Gambar-32.png', 'Gambar-33.png', 'Gambar-34.png', 'Gambar-35.png', 'Gambar-36.png', 'Gambar-37.png', 'Gambar-38.png', 'Gambar-39.png', 'Gambar-40.png', 'Gambar-41.png', 'Gambar-42.png', 'Gambar-43.png', 'Gambar-44.png', 'Gambar-45.png', 'Gambar-46.png', 'Gambar-47.png', 'Gambar-48.png', 'Gambar-49.png', 'Gambar-50.png'];
+
+        function getRandomFiles(files, count) {
+            let shuffled = files.sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, count);
+        }
+
+        const randomTextFiles = getRandomFiles(textFiles, 3);
+        randomTextFiles.forEach((file, index) => {
+            fetch(file)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(`content${index + 1}`).innerHTML = `<p>${data}</p>`;
+                })
+                .catch(error => {
+                    console.error('Error fetching text file:', error);
+                    document.getElementById(`content${index + 1}`).innerHTML = '<p>Artikel tidak ditemukan</p>';
+                });
+        });
+
+        const randomImages1 = getRandomFiles(imageFiles, 2);
+        randomImages1.forEach(img => {
+            let imageElement = document.createElement('img');
+            imageElement.src = img;
+            imageElement.alt = 'Gambar Acak';
+            document.getElementById('images1').appendChild(imageElement);
+            
+            let pinButton = document.createElement('a');
+            pinButton.href = `https://www.pinterest.com/pin/create/button/?url=${window.location.href}&media=${window.location.origin}/${img}`;
+            pinButton.className = 'pin-button';
+            pinButton.innerText = 'Pin ke Pinterest';
+            pinButton.target = '_blank';
+            document.getElementById('images1').appendChild(pinButton);
+        });
+
+        const randomImages2 = getRandomFiles(imageFiles.filter(img => !randomImages1.includes(img)), 2);
+        randomImages2.forEach(img => {
+            let imageElement = document.createElement('img');
+            imageElement.src = img;
+            imageElement.alt = 'Gambar Acak';
+            document.getElementById('images2').appendChild(imageElement);
+            
+            let pinButton = document.createElement('a');
+            pinButton.href = `https://www.pinterest.com/pin/create/button/?url=${window.location.href}&media=${window.location.origin}/${img}`;
+            pinButton.className = 'pin-button';
+            pinButton.innerText = 'Pin ke Pinterest';
+            pinButton.target = '_blank';
+            document.getElementById('images2').appendChild(pinButton);
+        });
+    </script>
+</body>
+</html>
