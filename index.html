@@ -55,9 +55,7 @@
     <div id="wrapper">
         <div class="content-block" id="content1"></div>
         <div id="images1"></div>
-        <div class="content-block" id="content2"></div>
-        <div id="images2"></div>
-        <div class="content-block" id="content3"></div>
+        <div id="images2"></div>        
     </div>
 
     <script>
@@ -82,7 +80,7 @@
                 });
         });
 
-        const randomImages1 = getRandomFiles(imageFiles, 2);
+        const randomImages1 = getRandomFiles(imageFiles, 5);
         randomImages1.forEach(img => {
             let imageElement = document.createElement('img');
             imageElement.src = img;
