@@ -40,19 +40,6 @@
             margin-left: auto;
             margin-right: auto;
         }
-        .pin-button {
-            display: block;
-            margin: 10px auto;
-            padding: 8px 16px;
-            background-color: #E60023;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            text-decoration: none;
-            font-size: 14px;
-            text-align: center;
-        }
         @media (max-width: 820px) {
             #wrapper {
                 width: 95%;
@@ -60,10 +47,6 @@
             }
             .content-block {
                 padding: 15px;
-            }
-            .pin-button {
-                padding: 6px 12px;
-                font-size: 12px;
             }
         }
     </style>
@@ -105,13 +88,6 @@
             imageElement.src = img;
             imageElement.alt = 'Gambar Acak';
             document.getElementById('images1').appendChild(imageElement);
-            
-            let pinButton = document.createElement('a');
-            pinButton.href = `https://www.pinterest.com/pin/create/button/?url=${window.location.href}&media=${window.location.origin}/${img}`;
-            pinButton.className = 'pin-button';
-            pinButton.innerText = 'Pin ke Pinterest';
-            pinButton.target = '_blank';
-            document.getElementById('images1').appendChild(pinButton);
         });
 
         const randomImages2 = getRandomFiles(imageFiles.filter(img => !randomImages1.includes(img)), 2);
@@ -120,13 +96,6 @@
             imageElement.src = img;
             imageElement.alt = 'Gambar Acak';
             document.getElementById('images2').appendChild(imageElement);
-            
-            let pinButton = document.createElement('a');
-            pinButton.href = `https://www.pinterest.com/pin/create/button/?url=${window.location.href}&media=${window.location.origin}/${img}`;
-            pinButton.className = 'pin-button';
-            pinButton.innerText = 'Pin ke Pinterest';
-            pinButton.target = '_blank';
-            document.getElementById('images2').appendChild(pinButton);
         });
     </script>
 </body>
