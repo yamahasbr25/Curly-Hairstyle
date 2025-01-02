@@ -67,7 +67,7 @@
             return shuffled.slice(0, count);
         }
 
-        const randomTextFiles = getRandomFiles(textFiles, 15);
+        const randomTextFiles = getRandomFiles(textFiles, 1);
         randomTextFiles.forEach((file, index) => {
             fetch(file)
                 .then(response => response.text())
@@ -80,7 +80,7 @@
                 });
         });
 
-        const randomImages1 = getRandomFiles(imageFiles, 50);
+        const randomImages1 = getRandomFiles(imageFiles, 5);
         randomImages1.forEach(img => {
             let imageElement = document.createElement('img');
             imageElement.src = img;
